@@ -1,0 +1,30 @@
+import React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Web3Provider } from "@/contexts/Web3Context";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Web3 Messenger",
+  description: "Decentralized messaging application built on Web3",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Web3Provider>
+          <main className="min-h-screen bg-gray-100">
+            {children}
+          </main>
+        </Web3Provider>
+      </body>
+    </html>
+  );
+} 
